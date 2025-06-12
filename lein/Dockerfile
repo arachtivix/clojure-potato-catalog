@@ -1,4 +1,4 @@
-FROM clojure:temurin-17-lein-trixie-slim
+FROM clojure:leiningen
 
 COPY entrypoint.sh /usr/src/entrypoint.sh
 RUN chmod +x /usr/src/entrypoint.sh
