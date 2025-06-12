@@ -30,11 +30,11 @@ jobs:
         run: clj-kondo --lint src test
 
       - name: Leiningen test
-        uses: .github/actions/lein/
+        uses: ./lein/
         with:
           exec: lein test
 
       - name: Leiningen uberjar
-        uses: .github/actions/lein/
+        uses: ./lein/
         with:
           exec: lein uberjar
