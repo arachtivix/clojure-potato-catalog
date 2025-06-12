@@ -1,5 +1,5 @@
 FROM clojure:temurin-17-lein-trixie-slim
 
-COPY entrypoint.sh /opt/entrypoint.sh
+COPY entrypoint.sh /usr/local/entrypoint.sh
 
-ENTRYPOINT [ "/opt/entrypoint.sh" ]
+ENTRYPOINT [ "/usr/local/entrypoint.sh" ]
