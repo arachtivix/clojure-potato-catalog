@@ -1,7 +1,16 @@
 (ns potato-catalog.db
-  (:require [next.jdbc.sql :as sql]))
+  (:require [next.jdbc.sql :as sql]
+            [next.jdbc :as jdbc]))
 
 (def db-spec {:dbtype "h2" :dbname "./my-db"})
+
+(defn init-db [] (jdbc/execute-one! db-spec ["
+              CREATE TABLE locations (
+                id bigint primary key auto_increment,
+                x  integer,
+                y  integer
+              )
+              "]))
 
 (defn add-location-to-db
   [x y]
@@ -22,5 +31,4 @@
 
 (comment
   (get-all-locations)
-  (get-xy 1)
-  )
+  (get-xy 1))
