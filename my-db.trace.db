@@ -1,6 +1,0 @@
-2025-06-12 14:51:16.355823Z jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LOCATIONSASDF" not found; SQL statement:
-select x, y from locationsasdf where id = ? [42102-232]
-2025-06-12 14:52:33.109491Z jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LOCATIONSASDF" not found; SQL statement:
-select x, y from locationsasdf where id = ? [42102-232]
