@@ -30,8 +30,12 @@ jobs:
       - name: Run clj-kondo
         run: clj-kondo --lint src test
 
-      - name: Run tests
-        run: lein test
+      - name: Leiningen test
+        uses: oxr463/setup-leiningen@0.0.1
+        with:
+          exec: lein test
 
-      - name: Uberjar
-        run: lein uberjar
+      - name: Leiningen uberjar
+        uses: oxr463/setup-leiningen@0.0.1
+        with:
+          exec: lein uberjar
