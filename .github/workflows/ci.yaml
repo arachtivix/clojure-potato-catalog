@@ -38,3 +38,6 @@ jobs:
         uses: ./lein/
         with:
           exec: lein uberjar
+
+      - name: Docker build
+        run: docker build -t potato-catalog:${{ github.run_number }} .
