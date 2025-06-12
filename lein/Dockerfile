@@ -1,4 +1,4 @@
-FROM clojure:leiningen
+FROM clojure:lein
 
 COPY entrypoint.sh /usr/src/entrypoint.sh
 RUN chmod +x /usr/src/entrypoint.sh
