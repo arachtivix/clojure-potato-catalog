@@ -1,0 +1,12 @@
+name: "Leiningen stuff"
+description: "Run Leiningen tasks"
+inputs:
+  exec:
+    description: "Leiningen command to execute"
+    required: true
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - "${{ inputs.exec }}"

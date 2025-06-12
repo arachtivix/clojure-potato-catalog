@@ -31,11 +31,11 @@ jobs:
         run: clj-kondo --lint src test
 
       - name: Leiningen test
-        uses: oxr463/setup-leiningen@0.0.1
+        uses: .github/actions/lein
         with:
           exec: lein test
 
       - name: Leiningen uberjar
-        uses: oxr463/setup-leiningen@0.0.1
+        uses: .github/actions/lein
         with:
           exec: lein uberjar
