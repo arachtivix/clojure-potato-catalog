@@ -10,9 +10,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  permissions:
-    id-token: write
-    contents: read
   build:
     runs-on: ubuntu-latest
 
@@ -47,6 +44,9 @@ jobs:
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
+        permissions:
+          id-token: write
+          contents: read
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: ${{ secrets.AWS_ECR_REGION }}
