@@ -44,7 +44,7 @@ jobs:
           exec: lein uberjar
 
       - name: Docker build
-        run: docker build -t potato-catalog:${{ github.run_number }} .
+        run: docker build -t clojure-potato-catalog:${{ github.run_number }} .
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -61,6 +61,7 @@ jobs:
         env:
           ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY_URL }}
           IMAGE_TAG: ${{ github.run_number }}
+          RUN_NUMBER: ${{ github.run_number }}
         run: |
-          docker tag potato-catalog:${{ github.run_number }} $ECR_REPOSITORY:$IMAGE_TAG
+          docker tag clojure-potato-catalog:$RUN_NUMBER $ECR_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REPOSITORY:$IMAGE_TAG
