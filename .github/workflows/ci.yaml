@@ -41,3 +41,15 @@ jobs:
 
       - name: Docker build
         run: docker build -t potato-catalog:${{ github.run_number }} .
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Push Docker image to ECR
+        env:
+          ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY_URL }}
+          IMAGE_TAG: ${{ github.run_number }}
+        run: |
+          docker tag potato-catalog:${{ github.run_number }} $ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REPOSITORY:$IMAGE_TAG
