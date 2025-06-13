@@ -44,7 +44,7 @@ jobs:
           exec: lein uberjar
 
       - name: Docker build
-        run: docker build -t clojure-potato-catalog:${{ github.run_number }} .
+        run: docker build -t clojure-potato-catalog:cpc-${{ github.run_number }} .
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -63,5 +63,5 @@ jobs:
           IMAGE_TAG: ${{ github.run_number }}
           RUN_NUMBER: ${{ github.run_number }}
         run: |
-          docker tag clojure-potato-catalog:$RUN_NUMBER $ECR_REPOSITORY:$IMAGE_TAG
-          docker push $ECR_REPOSITORY:$IMAGE_TAG
+          docker tag clojure-potato-catalog:cpc-$RUN_NUMBER $ECR_REPOSITORY:cpc-$IMAGE_TAG
+          docker push $ECR_REPOSITORY:cpc-$IMAGE_TAG
