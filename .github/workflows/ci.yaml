@@ -63,5 +63,5 @@ jobs:
           IMAGE_TAG: ${{ github.run_number }}
           RUN_NUMBER: ${{ github.run_number }}
         run: |
-          docker tag clojure-potato-catalog:cpc-$RUN_NUMBER $ECR_REPOSITORY/clojure-potato-catalog:cpc-$IMAGE_TAG
-          docker push $ECR_REPOSITORY/clojure-potato-catalog:cpc-$IMAGE_TAG
+          docker tag clojure-potato-catalog:cpc-$RUN_NUMBER $ECR_REPOSITORY:cpc-$IMAGE_TAG
+          docker push $ECR_REPOSITORY:cpc-$IMAGE_TAG
